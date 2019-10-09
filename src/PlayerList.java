@@ -3,6 +3,11 @@ import java.util.List;
 
 public class PlayerList {
     private List<Player> players=new ArrayList<>();
+    public PlayerList(int numOfPlayers){
+        for(int i=0;i<numOfPlayers;i++){
+            players.add(new Player(i+1));
+        }
+    }
     public void doRound(){
         for(Player p:players){
             p.takeTurn();

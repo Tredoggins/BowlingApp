@@ -1,3 +1,3 @@
 public enum FrameType {
-    STRIKE,SPARE,NORMAL
+    STRIKE,DBLSTRIKE,SPARE,NORMAL
 }
