@@ -7,5 +7,6 @@ public class Game {
             currentFrame=i;
             playerList.doRound();
         }
+        UserInterface.displayWinner(playerList.getWinner());
     }
 }

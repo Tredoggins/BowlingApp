@@ -13,4 +13,13 @@ public class PlayerList {
             p.takeTurn();
         }
     }
+    public Player getWinner(){
+        Player winner=players.get(0);
+        for(Player p:players){
+            if(p.getScore()>winner.getScore()){
+                winner=p;
+            }
+        }
+        return winner;
+    }
 }

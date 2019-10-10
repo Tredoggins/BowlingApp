@@ -32,4 +32,7 @@ public class Player {
     public int getMyNum(){
         return playerNum;
     }
+    public int getScore(){
+        return frameList.getCurrentScore();
+    }
 }

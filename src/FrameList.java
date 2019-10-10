@@ -48,4 +48,7 @@ public class FrameList {
             }
         }
     }
+    public int getCurrentScore(){
+        return currentScore;
+    }
 }

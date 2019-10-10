@@ -23,4 +23,7 @@ public class UserInterface {
     public static void displayTop(Player player){
         System.out.println("Player "+player.getMyNum()+"   -   Frame #"+(Game.currentFrame+1));
     }
+    public static void displayWinner(Player winner){
+        System.out.println("Player "+winner.getMyNum()+" Wins!");
+    }
 }
