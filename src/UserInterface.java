@@ -15,19 +15,24 @@ public class UserInterface {
             }
         }
         catch (Exception e){
-            System.out.println("That is not a valid input, please try again");
+            System.out.println("That is not a valid number of pins, please try again");
             return getNumOfPins();
         }
     }
     public static int getHowManyPlayers(){
         System.out.print("How many people are playing? ");
         String input=keyboard.nextLine();
-        int numOfPlayers=Integer.parseInt(input);
-        if(numOfPlayers>0) {
-            return numOfPlayers;
+        try {
+            int numOfPlayers = Integer.parseInt(input);
+            if (numOfPlayers > 0) {
+                return numOfPlayers;
+            } else {
+                System.out.println("Number of people must be greater than zero");
+                return getHowManyPlayers();
+            }
         }
-        else {
-            System.out.println("Number of people must be greater than zero");
+        catch (Exception e){
+            System.out.println("That is not a valid number of players, please try again");
             return getHowManyPlayers();
         }
     }
