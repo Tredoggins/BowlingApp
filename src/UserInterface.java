@@ -5,12 +5,17 @@ public class UserInterface {
     public static int getNumOfPins(){
         System.out.print("How Many Pins Were Knocked Down? ");
         String input=keyboard.nextLine();
-        int numOfPins=Integer.parseInt(input);
-        if(numOfPins<=10) {
-            return numOfPins;
+        try {
+            int numOfPins = Integer.parseInt(input);
+            if (numOfPins <= 10) {
+                return numOfPins;
+            } else {
+                System.out.println("That is more than 10 pins");
+                return getNumOfPins();
+            }
         }
-        else{
-            System.out.println("That is more than 10 pins");
+        catch (Exception e){
+            System.out.println("That is not a valid input, please try again");
             return getNumOfPins();
         }
     }
