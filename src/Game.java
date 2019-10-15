@@ -8,5 +8,6 @@ public class Game {
             playerList.doRound();
         }
         UserInterface.displayWinner(playerList.getWinner());
+        playerList.displayFinalCards();
     }
 }

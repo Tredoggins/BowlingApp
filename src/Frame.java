@@ -48,15 +48,21 @@ public class Frame {
         addToScore(extra);
     }
     public void setFinalScore(int score){
-        if(finalScore==0) {
+        //if(finalScore==0) {
             finalScore = score;
-        }
+        //}
     }
     public int getFinalScore(){
         return finalScore;
     }
     private void determineType(){
-        if(rolls.size()>0 && rolls.get(0).getPinCount()==10){
+        if(rolls.size()>2 && rolls.get(0).getPinCount()==10){
+            type=FrameType.FINALSTRIKE;
+        }
+        else if(rolls.size()>2 && rolls.get(0).getPinCount()+rolls.get(1).getPinCount()==10){
+            type=FrameType.FINALSPARE;
+        }
+        else if(rolls.size()>0 && rolls.get(0).getPinCount()==10){
             type=FrameType.STRIKE;
         }
         else if(rolls.size()>1 && rolls.get(0).getPinCount()+rolls.get(1).getPinCount()==10){
@@ -64,12 +70,6 @@ public class Frame {
         }
         else if(rolls.size()>1 && rolls.get(0).getPinCount()+rolls.get(1).getPinCount()<10){
             type=FrameType.NORMAL;
-        }
-        else if(rolls.size()>2 && rolls.get(0).getPinCount()==10){
-            type=FrameType.FINALSTRIKE;
-        }
-        else if(rolls.size()>2 && rolls.get(0).getPinCount()+rolls.get(1).getPinCount()==10){
-            type=FrameType.FINALSPARE;
         }
     }
     public int getFrameNum(){
@@ -114,6 +114,9 @@ public class Frame {
                     }
                     else if(rolls.get(2).getPinCount()==0){
                         display+="-";
+                    }
+                    else{
+                        display+=rolls.get(2).getPinCount();
                     }
                 }
                 else if(rolls.get(1).getPinCount()+rolls.get(2).getPinCount()==10){

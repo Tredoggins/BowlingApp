@@ -22,4 +22,10 @@ public class PlayerList {
         }
         return winner;
     }
+    public void displayFinalCards(){
+        for(Player p:players){
+            p.getFrameList().calculateCurrentScore();
+            UserInterface.displayScoreCard(p.getFrameList());
+        }
+    }
 }

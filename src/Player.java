@@ -20,8 +20,11 @@ public class Player {
             roll = new Roll(UserInterface.getNumOfPins());
             pinCount += roll.getPinCount();
         }
-        else{
+        else if(Game.currentFrame<9){
             roll=new Roll(0);
+        }
+        else{
+            roll=new Roll(UserInterface.getNumOfPins());
         }
         if (pinCount > 10) {
             System.out.println("That is not a valid roll, please re-enter the rolls for this frame");
@@ -29,7 +32,7 @@ public class Player {
         }
         else{
             frame.addRoll(roll);
-            if ((frame.getType() == FrameType.FINALSPARE || frame.getType() == FrameType.FINALSTRIKE) && Game.currentFrame == 9) {
+            if (/*(frame.getType() == FrameType.FINALSPARE || frame.getType() == FrameType.FINALSTRIKE) && */Game.currentFrame == 9) {
                 frame.addRoll(new Roll(UserInterface.getNumOfPins()));
             }
             frameList.nextFrame(frame);

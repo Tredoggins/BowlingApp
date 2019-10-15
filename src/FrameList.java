@@ -12,7 +12,7 @@ public class FrameList {
         calculateCurrentScore();
         UserInterface.displayScoreCard(this);
     }
-    private void calculateCurrentScore(){
+    public void calculateCurrentScore(){
         for(int i=0;i<Game.currentFrame+1;i++){
             if(!frames.get(i).isFinished()){
                 switch (frames.get(i).getType()){
@@ -22,10 +22,10 @@ public class FrameList {
                                 currentScore-=frames.get(i).getScore();
                                 if (frames.get(i + 1).howManyRolls() > 0) {
                                     frames.get(i).calculateWorkingScore(frames.get(i+1).getRoll(0).getPinCount());
+                                    currentScore += frames.get(i).getScore();
                                     frames.get(i).setFinalScore(currentScore);
                                     frames.get(i).setFinished(true);
                                 }
-                                currentScore += frames.get(i).getScore();
                             }
                         }
                         break;
@@ -33,19 +33,20 @@ public class FrameList {
                         if(i<9){
                             if(frames.size()-1>i) {
                                 currentScore -= frames.get(i).getScore();
-                                if (frames.get(i + 1).howManyRolls() > 1) {
+                                if (frames.get(i + 1).howManyRolls() > 1 && (frames.get(i+1).getRoll(0).getPinCount()<10 || frames.get(i+1).getType()==FrameType.FINALSTRIKE)) {
                                     frames.get(i).calculateWorkingScore(frames.get(i+1).getRoll(0).getPinCount()+frames.get(i+1).getRoll(1).getPinCount());
+                                    currentScore += frames.get(i).getScore();
                                     frames.get(i).setFinalScore(currentScore);
                                     frames.get(i).setFinished(true);
                                 }
                                 else if(frames.size()-2>i) {
                                     if (frames.get(i + 1).howManyRolls() > 0 && frames.get(i + 2).howManyRolls() > 0) {
                                         frames.get(i).calculateWorkingScore(frames.get(i+1).getRoll(0).getPinCount()+frames.get(i+2).getRoll(0).getPinCount());
+                                        currentScore += frames.get(i).getScore();
                                         frames.get(i).setFinalScore(currentScore);
                                         frames.get(i).setFinished(true);
                                     }
                                 }
-                                currentScore += frames.get(i).getScore();
                             }
                         }
                         break;
