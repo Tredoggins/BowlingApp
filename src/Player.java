@@ -33,7 +33,7 @@ public class Player {
         }
         else{
             frame.addRoll(roll);
-            if (/*(frame.getType() == FrameType.FINALSPARE || frame.getType() == FrameType.FINALSTRIKE) && */Game.currentFrame == 9) {
+            if ((frame.getType() == FrameType.SPARE || frame.getType() == FrameType.STRIKE) && Game.currentFrame == 9) {
                 frame.addRoll(new Roll(UserInterface.getNumOfPins()));
             }
             frameList.nextFrame(frame);
