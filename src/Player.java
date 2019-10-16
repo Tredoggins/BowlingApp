@@ -27,7 +27,8 @@ public class Player {
             roll=new Roll(UserInterface.getNumOfPins());
         }
         if (pinCount > 10) {
-            System.out.println("That is not a valid roll, please re-enter the rolls for this frame");
+            //System.out.println("That is not a valid roll, please re-enter the rolls for this frame");
+            UserInterface.displaySomething("That is not a valid roll, please re-enter the rolls for this frame");
             takeTurn();
         }
         else{

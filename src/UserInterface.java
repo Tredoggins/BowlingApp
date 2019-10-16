@@ -129,4 +129,7 @@ public class UserInterface {
         System.out.println();
         System.out.println("Total Score: "+frameList.getCurrentScore());
     }
+    public static void displaySomething(String s){
+        System.out.println(s);
+    }
 }
